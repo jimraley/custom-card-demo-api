@@ -1,0 +1,77 @@
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+
+    function trackOrder()
+    {
+        
+        var randomNum = Math.random();
+        
+        if (randomNum < 0.5)
+            {
+                document.getElementById("orderStatus").innerHTML="On Time!";
+                document.getElementById("orderStatus").style.color = 'green';
+            }
+        else if (randomNum >= 0.5 && randomNum <= .75)
+            {
+                document.getElementById("orderStatus").innerHTML="Not Yet Shipped";
+                document.getElementById("orderStatus").style.color = 'red';
+            }
+        
+        else
+            {
+                
+                document.getElementById("orderStatus").innerHTML="Delayed";
+                document.getElementById("orderStatus").style.color = 'yellow';
+                document.getElementById("orderStatus").style.backgroundColor = 'black';
+                
+            }
+        
+    }
+    
+</script>
+
+
+<div class="panel panel-info">
+    <div class="panel-heading">Acquire Fields - Demo</div>
+    <div class="panel-body">
+      <% for(let field of Object.keys(params))  {%>
+        <h5><strong><%= field %>:</strong> <%= params[field] || '' %></h5>
+      <% } %>
+    </div>
+  </div>
+
+  <div class="panel panel-success">
+    <div class="panel-heading">Order Information</div>
+    <div class="panel-body">
+      <p><strong>Order 3241</strong></p>
+      <br/>
+      <p><strong>Status: </strong><span style="color:MediumSeaGreen;">Shipped</span></p>
+        <p><strong>Total: </strong>$2,350.00</p>
+        <p><strong>Carrier: </strong>FedEx</p>
+        <p><strong>Tracking Number: </strong>32541698</p>
+    </div>
+  </div>
+
+<div class="panel panel-success">
+    <div class="panel-heading">Order Tracker</div>
+    <div class="panel-body">
+      <div class="form-outline">
+  <input type="text" id="form1" class="form-control" />
+  <label class="form-label" for="form1">Enter Order Number</label>
+</div>
+        <button type="button" class="btn btn-primary" onClick="trackOrder()">Track</button>
+        <p><strong id="orderStatus"></strong></p>
+    </div>
+  </div>
+
+    
+
+  <br/>

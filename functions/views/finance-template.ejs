@@ -1,0 +1,61 @@
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    
+    
+
+    function getAccount()
+    {
+        
+        var randomNum = Math.floor((Math.random() * 10000) + 1)
+        const formatter = new Intl.NumberFormat('en-US', {
+            style: 'currency',
+            currency: 'USD',
+            minimumFractionDigits: 2
+        })
+        
+        document.getElementById("accountBalance").innerHTML=formatter.format(randomNum);
+        
+    }
+    
+</script>
+
+
+<div class="panel panel-info">
+    <div class="panel-heading">Acquire Fields - Demo</div>
+    <div class="panel-body">
+      <% for(let field of Object.keys(params))  {%>
+        <h5><strong><%= field %>:</strong> <%= params[field] || '' %></h5>
+      <% } %>
+    </div>
+  </div>
+
+  <div class="panel panel-success">
+    <div class="panel-heading">Accounts</div>
+    <div class="panel-body">
+      <p><strong>Personal Checking</strong></p>
+
+        <p><strong>Balance: </strong> $1,850.23</p><br/>
+        <p><strong>Savings</strong></p>
+
+      <p><strong>Balance: </strong> $26,2945.11</p>
+       <br/><div class="form-outline">
+  
+  <label class="form-label" for="form1">Check Balance: Enter Account Number</label>
+        <input type="text" id="form1" class="form-control" />
+</div>
+        <button type="button" class="btn btn-primary" onClick="getAccount()">Check</button>
+        <p><strong id="accountBalance"></strong></p>
+    </div>
+  </div>
+
+    
+
+  <br/>

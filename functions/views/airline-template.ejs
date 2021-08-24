@@ -1,0 +1,35 @@
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+<div class="panel panel-info">
+    <div class="panel-heading">Acquire Fields - Demo</div>
+    <div class="panel-body">
+      <% for(let field of Object.keys(params))  {%>
+        <h5><strong><%= field %>:</strong> <%= params[field] || '' %></h5>
+      <% } %>
+    </div>
+  </div>
+
+  <div class="panel panel-success">
+    <div class="panel-heading">Flight Information</div>
+    <div class="panel-body">
+      <p><strong>Flight 32412</strong></p>
+      <br/>
+      <p><strong>Destination: </strong>Dallas, TX (DFW)</p>
+        <p><strong>Status: </strong><span style="color:MediumSeaGreen;">On-time</span></p>
+        <p><strong>Baggage: </strong>1 Bag</p>
+        <p><strong>Seat Map: </strong></p>
+        <img src="https://firebasestorage.googleapis.com/v0/b/acquire-jim-custom-cards.appspot.com/o/seatmap.jpg?alt=media&token=b9ebd094-9731-4c5e-a85e-c14935d7e826">
+    </div>
+  </div>
+
+
+  <br/>

@@ -1,0 +1,110 @@
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>function getCars(){
+
+			var list1 = document.getElementById('firstList');
+			var list2 = document.getElementById("secondList");
+			var list1SelectedValue = list1.options[list1.selectedIndex].value;
+			
+			if (list1SelectedValue=='Honda')
+            {
+				
+				list2.options.length=0;
+				list2.options[0] = new Option('--Select--', '');
+				list2.options[1] = new Option('Accord', 'Accord');
+				list2.options[2] = new Option('Civic', 'Civic');
+				list2.options[3] = new Option('Odyssey', 'Odyssey');
+				list2.options[4] = new Option('Pilot', 'Pilot');
+				list2.options[5] = new Option('Ridgeline', 'Ridgeline');
+				
+			}
+			else if (list1SelectedValue=='Audi')
+            {
+				
+				list2.options.length=0;
+				list2.options[0] = new Option('--Select--', '');
+				list2.options[1] = new Option('A4', 'A4');
+				list2.options[2] = new Option('A5', 'A5');
+				list2.options[3] = new Option('S5', 'S5');
+				list2.options[4] = new Option('Q3', 'Q3');
+				list2.options[5] = new Option('Q5', 'Q5');
+				
+			}
+}
+function randomInventoryCheck()
+    {
+        var randomNum = Math.random();
+        
+        if (randomNum < 0.5)
+            {
+                document.getElementById("inventoryStatus").innerHTML="In Stock!";
+                document.getElementById("inventoryStatus").style.color = 'green';
+            }
+        else
+            {
+                document.getElementById("inventoryStatus").innerHTML="Not in Stock";
+                document.getElementById("inventoryStatus").style.color = 'red';
+            }
+        
+    }
+</script>
+
+<div class="panel panel-info">
+    <div class="panel-heading">Acquire Fields - Demo</div>
+    <div class="panel-body">
+      <% for(let field of Object.keys(params))  {%>
+        <h5><strong><%= field %>:</strong> <%= params[field] || '' %></h5>
+      <% } %>
+    </div>
+  </div>
+<div class="panel panel-success">
+    <div class="panel-heading">Inventory Check</div>
+    <div class="panel-body">
+       <div class="dropdown">
+  
+  <ul class="dropdown-menu">
+    <li><a href="#">Accord</a></li>
+    <li><a href="#">Civic</a></li>
+    <li><a href="#">Odyssey</a></li>
+      <li><a href="#">Pilot</a></li>
+  </ul>
+           	<div class="col-md-4">
+	<form>
+	<h4>Make</h4>
+	<select class="form-control"  id='firstList' name='firstList' onClick="getCars()">
+        <option value="Honda">Honda</option>
+                <option value="Audi">Audi</option>
+
+	</select>
+	
+	<h4>Model</h4>
+	<select class="form-control"  id='secondList' name='secondList' >
+	</select>
+	
+	</form>
+                <button type="button" class="btn btn-primary" onClick='randomInventoryCheck()'>Check Inventory</button>
+                <p><strong id="inventoryStatus"></strong></p>
+	</div>
+</div> 
+    </div>
+  </div>
+  <div class="panel panel-success">
+    <div class="panel-heading">Vehicle Information</div>
+    <div class="panel-body">
+      <p><strong>2018 Honda Odyssey</strong></p>
+      <br/>
+      <p><strong>Warranty: </strong>Valid until 01-01-2022</p>
+        <p><strong>Estimated Mileage: </strong>32,000</p>
+        <p><strong>Last Service Date: 03-01-2021</strong></p>
+    </div>
+  </div>
+
+
+  <br/>
